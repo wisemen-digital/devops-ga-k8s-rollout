@@ -65,7 +65,7 @@ runs:
       run: |
         # Restart multiple deployments
         if [ -n "$DEPLOYMENTS" ]; then
-          for deployment in ${DEPLOYMENTS/,/ }; do
+          for deployment in ${DEPLOYMENTS//,/ }; do
             kubectl rollout restart deployment \
               "$deployment" \
               --namespace="${{ inputs.rollout-namespace }}"
@@ -74,7 +74,7 @@ runs:
         # Restart multiple labels
         elif [ -n "$LABELS" ]; then
           if [ -n "$SUFFIX" ]; then SUFFIX=-${SUFFIX}; fi
-          for label in ${LABELS/,/ }; do
+          for label in ${LABELS//,/ }; do
             kubectl rollout restart deployment \
               --selector="$label$SUFFIX" \
               --namespace="${{ inputs.rollout-namespace }}"
