@@ -61,7 +61,7 @@ runs:
       run: |
         # Restart multiple deployments
         if [ -n "$DEPLOYMENTS" ]; then
-          for deployment in ${DEPLOYMENTS/,/ }; do
+          for deployment in ${DEPLOYMENTS//,/ }; do
             kubectl rollout restart deployment \
               "$deployment" \
               --namespace="${{ inputs.rollout-namespace }}"
