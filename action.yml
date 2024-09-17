@@ -69,11 +69,9 @@ runs:
 
         # Restart multiple labels
         elif [ -n "$LABELS" ]; then
-          for label in ${LABELS/,/ }; do
-            kubectl rollout restart deployment \
-              --selector="$label" \
-              --namespace="${{ inputs.rollout-namespace }}"
-          done
+          kubectl rollout restart deployment \
+            --selector="$LABELS" \
+            --namespace="${{ inputs.rollout-namespace }}"
 
         # Restart everything
         else
