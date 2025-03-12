@@ -3,7 +3,7 @@ name: K8S Rollout
 description: Restarts deployments matching the given criteria
 inputs:
   vendor:
-    description: The vendor to communicate with (digitalocean, scaleway, azure)
+    description: The vendor to communicate with (azure, digitalocean, scaleway)
     required: true
   cluster-id:
     description: Target cluster ID
