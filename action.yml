@@ -53,7 +53,7 @@ runs:
       with:
         vendor: ${{ inputs.vendor }}
         cluster-id: ${{ inputs.cluster-id }}
-        azure-creds: ${{ inputs.azure-creds }}
+        azure-credentials: ${{ inputs.azure-credentials }}
         azure-resource-group: ${{ inputs.azure-resource-group }}
         digitalocean-api-token: ${{ inputs.digitalocean-api-token }}
         scaleway-organization-id: ${{ inputs.scaleway-organization-id }}
