@@ -49,7 +49,7 @@ runs:
   using: composite
   steps:
     # Vendor setup
-    - uses: wisemen-digital/devops-ga-k8s-setup
+    - uses: wisemen-digital/devops-ga-k8s-setup@main
       with:
         vendor: ${{ inputs.vendor }}
         cluster-id: ${{ inputs.cluster-id }}
