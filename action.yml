@@ -3,7 +3,7 @@ name: K8S Rollout
 description: Restarts deployments matching the given criteria
 inputs:
   vendor:
-    description: The vendor to communicate with (digitalocean, scaleway)
+    description: The vendor to communicate with (azure, digitalocean, scaleway)
     required: true
   cluster-id:
     description: Target cluster ID
@@ -17,6 +17,13 @@ inputs:
   rollout-namespace:
     description: Rollout namespace filter
     required: true
+  # Vendor: Azure
+  azure-credentials:
+    description: Json string for login with an Azure service principal
+    required: false
+  azure-resource-group:
+    description: Resource group name
+    required: false
   # Vendor: DigitalOcean
   digitalocean-api-token:
     description: DigitalOcean API token
@@ -46,6 +53,8 @@ runs:
       with:
         vendor: ${{ inputs.vendor }}
         cluster-id: ${{ inputs.cluster-id }}
+        azure-credentials: ${{ inputs.azure-credentials }}
+        azure-resource-group: ${{ inputs.azure-resource-group }}
         digitalocean-api-token: ${{ inputs.digitalocean-api-token }}
         scaleway-organization-id: ${{ inputs.scaleway-organization-id }}
         scaleway-project-id: ${{ inputs.scaleway-project-id }}
